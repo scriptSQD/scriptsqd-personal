@@ -1,5 +1,8 @@
 name: Deploy Cloud Functions
-on: [push, pull_request]
+on:
+    push:
+        branches:
+            - master
 
 jobs:
     build_and_deploy:
@@ -12,7 +15,7 @@ jobs:
             - name: Create SA key
               run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > $HOME/gcloud.json
             - name: Install Deps
-              run: npm ci
+              run: npm ci && npm --prefix functions/ ci
             - name: Build Angular Universal
               run: npm run build:ssr-firebase
             - name: Deploy Cloud Functions
