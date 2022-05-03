@@ -75,10 +75,10 @@ body {
 
         &__dot {
             display: flex;
-            width: 0.875rem;
+            width: 0.75rem;
             aspect-ratio: 1;
             background-color: hsl(0, 0%, 35%);
-            margin: 0.625rem;
+            margin: 0.625rem 0.425rem;
             border-radius: 100%;
             transition: all 200ms ease-in-out;
         }
