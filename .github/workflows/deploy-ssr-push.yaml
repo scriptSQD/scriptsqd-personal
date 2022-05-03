@@ -27,7 +27,7 @@ jobs:
             - name: Install Project Deps
               run: npm ci
 
-              - name: Cache Project npm dependencies
+            - name: Cache Project npm dependencies
               uses: actions/cache@v2
               with:
                   path: "./functions/node_modules"
