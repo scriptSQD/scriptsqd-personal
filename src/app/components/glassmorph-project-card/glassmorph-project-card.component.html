@@ -1,0 +1,57 @@
+<span class="flex flex-col group items-center text-base font-sans">
+    <div class="card gap-6">
+        <ng-container *ngIf="link; else nolink">
+            <a
+                class="h-fit w-fit aspect-square object-contain rounded-[11px] justify-self-center"
+                [href]="link"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    src="/assets/projects/{{ image }}"
+                    alt="{{ imageAlt ? imageAlt : title + ' homepage' }}"
+                    class="h-full sm:h-80 sm:w-80 aspect-square object-contain rounded-[11px] justify-self-center"
+                />
+            </a>
+        </ng-container>
+        <ng-template #nolink>
+            <img
+                src="/assets/projects/{{ image }}"
+                alt="{{ imageAlt ? imageAlt : title + ' homepage' }}"
+                class="h-full sm:h-80 sm:w-80 aspect-square object-contain rounded-[11px] justify-self-center"
+            />
+        </ng-template>
+        <div
+            class="max-h-[320px] overflow-y-scroll flex flex-col prose dark:prose-invert prose-headings:m-0 prose-headings:mb-3 prose-p:m-0 text-white max-w-[38ch] prose-p:text-lg prose-li:my-0.5 no_scrollbar"
+        >
+            <h1 class="text-center">{{ title }}</h1>
+            <div class="flex flex-col gap-y-3">
+                <p>
+                    <strong>General:</strong>
+                    {{ general }}
+                </p>
+                <div class="flex flex-col prose-li:marker:text-[#929292]">
+                    <p><strong>Tech-stack</strong></p>
+                    <div class="flex flex-col mx-3">
+                        <ng-container *ngIf="frontTech">
+                            <p>Front-end:</p>
+                            <ul class="flex flex-col mx-3">
+                                <li *ngFor="let tech of frontTech">
+                                    {{ tech }}
+                                </li>
+                            </ul>
+                        </ng-container>
+                        <ng-container *ngIf="backTech">
+                            <p>Back-end:</p>
+                            <ul class="flex flex-col mx-3">
+                                <li *ngFor="let tech of backTech">
+                                    {{ tech }}
+                                </li>
+                            </ul>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</span>

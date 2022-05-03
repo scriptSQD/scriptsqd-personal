@@ -1,0 +1,11 @@
+:host {
+    @apply grid grid-flow-row auto-rows-auto overflow-y-scroll overflow-x-hidden w-full h-full snap-y snap-proximity;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    scrollbar-width: none;
+}
+
+:host::-webkit-scrollbar {
+    display: none;
+}

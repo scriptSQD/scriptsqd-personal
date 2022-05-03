@@ -1,0 +1,134 @@
+<section
+    class="flex flex-col items-center justify-center max-h-screen h-screen overflow-hidden font-trebuchet font-bold text-white text-[3.5rem] sm:text-[4.25rem] snap-center bg-[url('/assets/page-bgs/1.svg')] bg-cover bg-center"
+>
+    <span
+        class="w-fit h-fit mx-3 relative flex flex-col items-start leading-none after:block after:bottom-0 after:z-0 after:-right-2 after:absolute after:w-full after:h-6 after:bg-gradient-to-r after:from-[#D55CFF] after:to-[hsla(155,100%,68%,50%)] flex-wrap"
+    >
+        <h1
+            class="z-10 flex flex-row justify-center items-center flex-wrap break-all"
+        >
+            Hello
+            <p class="text-[#D55CFF]">.</p>
+        </h1>
+        <h1 class="z-10 flex flex-col flex-wrap break-all">
+            I’m &mdash;
+            <br />
+            scriptSQD
+        </h1>
+    </span>
+    <p class="opacity-[65%] text-base font-normal my-2 font-sans">
+        And a web develper, of course!
+    </p>
+</section>
+
+<section
+    class="flex flex-col items-center justify-center min-h-screen h-fit font-trebuchet font-bold text-white text-[2.25rem] sm:text-[2.75rem] snap-none md:snap-center bg-[url('/assets/page-bgs/2.svg')] bg-cover bg-bottom"
+>
+    <h1
+        class="flex flex-row justify-center items-center flex-wrap break-all gap-x-2.5"
+    >
+        My
+        <p
+            class="relative after:block after:bottom-3 after:-z-10 after:-right-2 after:absolute after:w-full after:h-4 after:bg-gradient-to-r after:from-[#D55CFF] after:to-[hsla(155,100%,68%,50%)]"
+        >
+            skills:
+        </p>
+    </h1>
+    <div
+        class="relative flex flex-row flex-wrap max-w-[968px] items-center justify-center gap-x-16 gap-y-4 mx-3"
+    >
+        <div class="flex flex-col items-center gap-y-2">
+            <p class="text-[1.5rem] font-normal">Front-end:</p>
+            <div class="flex flex-row gap-x-5 gap-y-3 flex-wrap justify-center">
+                <GlassmorphCard
+                    *ngFor="let skill of skills.front"
+                    [gm-image]="skill.icon"
+                    [gm-tooltip]="skill.tooltip"
+                ></GlassmorphCard>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-y-2">
+            <p class="text-[1.5rem] font-normal">Back-end:</p>
+            <div class="flex flex-row gap-x-5 gap-y-3 flex-wrap justify-center">
+                <GlassmorphCard
+                    *ngFor="let skill of skills.back"
+                    [gm-image]="skill.icon"
+                    [gm-tooltip]="skill.tooltip"
+                ></GlassmorphCard>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-y-2">
+            <p class="text-[1.5rem] font-normal">General:</p>
+            <div class="flex flex-row gap-x-5 gap-y-3 flex-wrap justify-center">
+                <GlassmorphCard
+                    *ngFor="let skill of skills.general"
+                    [gm-image]="skill.icon"
+                    [gm-tooltip]="skill.tooltip"
+                ></GlassmorphCard>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section
+    class="max-w-full w-full flex flex-col items-center justify-center min-h-screen h-fit text-white text-[2.25rem] sm:text-[2.75rem] snap-none md:snap-center bg-[url('/assets/page-bgs/3.svg')] bg-cover bg-top"
+    #container
+>
+    <div class="scrollable">
+        <div class="scrollable__container" id="scrollable_container">
+            <GlassmorphProjectCard
+                *ngFor="let proj of projects"
+                class="scrollable__child m-3"
+                [gmp-title]="proj.title"
+                [gmp-general]="proj.description"
+                [gmp-image]="proj.image"
+                [gmp-link]="proj.link"
+                [gmp-front-tech]="proj.stack.front"
+                [gmp-back-tech]="proj.stack.back"
+            ></GlassmorphProjectCard>
+        </div>
+        <span class="scrollable__nav__container">
+            <button
+                class="group scrollable__nav left-1.5 sm:left-3"
+                (click)="scrollable.scrollToDirection(-1)"
+                aria-label="Scroll to previous project"
+            >
+                <svg
+                    width="18"
+                    height="32"
+                    viewBox="0 0 18 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M17.4058 31.4441C17.9383 30.9116 17.9867 30.0783 17.551 29.4911L17.4058 29.3228L4.46714 16.3835L17.4058 3.44414C17.9383 2.91161 17.9867 2.07828 17.551 1.49106L17.4058 1.32282C16.8733 0.790291 16.0399 0.741879 15.4527 1.17759L15.2845 1.32282L1.28448 15.3228C0.751946 15.8554 0.703533 16.6887 1.13924 17.2759L1.28448 17.4441L15.2845 31.4441C15.8703 32.0299 16.82 32.0299 17.4058 31.4441Z"
+                        fill="#909090"
+                        class="fill-[#909090] group-hover:fill-[hsl(0,0%,85%)] transition-all"
+                    />
+                </svg>
+            </button>
+
+            <button
+                class="group scrollable__nav right-1.5 sm:right-3 -scale-100"
+                (click)="scrollable.scrollToDirection(1)"
+                aria-label="Scroll to next project"
+            >
+                <svg
+                    width="18"
+                    height="32"
+                    viewBox="0 0 18 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M17.4058 31.4441C17.9383 30.9116 17.9867 30.0783 17.551 29.4911L17.4058 29.3228L4.46714 16.3835L17.4058 3.44414C17.9383 2.91161 17.9867 2.07828 17.551 1.49106L17.4058 1.32282C16.8733 0.790291 16.0399 0.741879 15.4527 1.17759L15.2845 1.32282L1.28448 15.3228C0.751946 15.8554 0.703533 16.6887 1.13924 17.2759L1.28448 17.4441L15.2845 31.4441C15.8703 32.0299 16.82 32.0299 17.4058 31.4441Z"
+                        fill="#909090"
+                        class="fill-[#909090] group-hover:fill-[hsl(0,0%,85%)] transition-all"
+                    />
+                </svg>
+            </button>
+        </span>
+
+        <div class="scrollable__pag" id="scrollable__pag"></div>
+    </div>
+</section>
