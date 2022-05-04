@@ -4,7 +4,7 @@
     "description": "scriptSQD's personal website containing projects and personal info.",
     "theme_color": "#732885",
     "background_color": "#121212",
-    "display": "standalone",
+    "display": "fullscreen",
     "scope": "./",
     "start_url": "./",
     "icons": [
@@ -55,6 +55,20 @@
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable any"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Home",
+            "url": "/home",
+            "description": "Visit the homepage.",
+            "icon": "assets/icons/shortcuts/home.png"
+        },
+        {
+            "name": "About",
+            "url": "/about",
+            "description": "Visit the about page.",
+            "icon": "assets/icons/shortcuts/about.png"
         }
     ]
 }

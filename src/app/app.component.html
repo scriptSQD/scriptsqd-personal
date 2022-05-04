@@ -65,11 +65,9 @@
 <router-outlet></router-outlet>
 
 <span
-    class="fixed flex flex-row items-center justify-center w-fit bottom-3 left-1/2 -translate-x-1/2 gap-x-2 text-white transition-all"
+    class="fixed flex flex-col-reverse items-center justify-center w-fit left-1 md:left-2 bottom-3 gap-y-2 text-white transition-all opacity-30"
     [ngClass]="{
-        'opacity-30': pageLoaded,
-        'opacity-0 -translate-y-1.5': !pageLoaded || atBottom,
-        'select-none pointer-events-none': atBottom
+        'opacity-0 -translate-x-1.5 select-none pointer-events-none': atBottom
     }"
 >
     <svg
@@ -78,11 +76,12 @@
         viewBox="0 0 8 12"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        class="animate-bounce"
     >
         <path
             d="M7.2734 6.09432C7.18924 5.93832 7.02921 5.84107 6.85516 5.84107H4.14486V0.48953C4.14486 0.219309 3.93064 0 3.66668 0C3.40273 0 3.18851 0.219309 3.18851 0.48953V5.84107H0.47821C0.303516 5.84107 0.143487 5.93832 0.0599654 6.09432C-0.0248311 6.25031 -0.019093 6.4409 0.0733543 6.59168L3.26183 11.7716C3.34981 11.9138 3.50219 12 3.66668 12C3.83118 12 3.98355 11.9138 4.07154 11.7716L7.26001 6.59168C7.30847 6.51205 7.33333 6.42132 7.33333 6.3306C7.33333 6.24966 7.31293 6.16807 7.2734 6.09432Z"
             fill="white"
         />
     </svg>
-    <p>Scroll down</p>
+    <p style="writing-mode: vertical-lr">scroll down</p>
 </span>

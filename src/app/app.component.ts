@@ -84,7 +84,7 @@ export class AppComponent implements AfterViewInit, AfterContentInit {
             },
             {
                 clipPath: "inset(0px 0px 0px 0px)",
-                duration: 0.95,
+                duration: 0.65,
                 ease: "expo.inOut",
                 onStart: () => {
                     this.animRunning = true;
@@ -92,7 +92,7 @@ export class AppComponent implements AfterViewInit, AfterContentInit {
                 onComplete: () => {
                     this.animRunning = false;
                 },
-                runBackwards: this.menuState ? true : false,
+                runBackwards: this.menuState,
                 immediateRender: false,
             }
         );

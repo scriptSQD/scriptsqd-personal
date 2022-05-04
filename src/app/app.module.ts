@@ -12,6 +12,7 @@ import { IsloadingDirective } from "./directives/isloading.directive";
 import { LoaderSpinnerComponent } from "./components/loader-spinner/loader-spinner.component";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { environment } from '../environments/environment';
         IsVisibleDirective,
         IsloadingDirective,
         LoaderSpinnerComponent,
+        AboutComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: "serverApp" }),
