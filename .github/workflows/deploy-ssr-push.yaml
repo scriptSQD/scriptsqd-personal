@@ -1,0 +1,47 @@
+name: Deploy Cloud Functions
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build_and_deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 16.x
+
+            - name: Create SA key
+              run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > $HOME/gcloud.json
+
+            - name: Cache Project npm dependencies
+              uses: actions/cache@v2
+              with:
+                  path: "./node_modules"
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+
+            - name: Install Project Deps
+              run: npm ci
+
+            - name: Cache CloudFunctions npm dependencies
+              uses: actions/cache@v2
+              with:
+                  path: "./functions/node_modules"
+                  key: ${{ runner.os }}-funcs_node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-funcs_node-
+
+            - name: Install Functions deps
+              run: npm --prefix functions/ ci
+
+            - name: Build Angular Universal
+              run: npm run build:ssr-firebase
+
+            - name: Deploy Cloud Functions
+              run: |
+                  export GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcloud.json 
+                  npx firebase-tools deploy --only functions --json
