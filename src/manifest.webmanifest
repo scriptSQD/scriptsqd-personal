@@ -62,13 +62,25 @@
             "name": "Home",
             "url": "/home",
             "description": "Visit the homepage.",
-            "icon": "assets/icons/shortcuts/home.png"
+            "icons": [
+                {
+                    "src": "assets/icons/shortcuts/home.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
         },
         {
             "name": "About",
             "url": "/about",
             "description": "Visit the about page.",
-            "icon": "assets/icons/shortcuts/about.png"
+            "icons": [
+                {
+                    "src": "assets/icons/shortcuts/about.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
         }
     ]
 }

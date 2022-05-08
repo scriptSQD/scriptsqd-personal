@@ -36,7 +36,7 @@ jobs:
               run: npm --prefix functions/ ci
 
             - name: Build Angular Universal
-              run: npm run build:ssr-firebase
+              run: npm run build:ssr-ci
 
             - name: Deploy Cloud Functions
               run: |
