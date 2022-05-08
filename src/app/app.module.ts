@@ -10,9 +10,11 @@ import { GlassmorphProjectCardComponent } from "./components/glassmorph-project-
 import { IsVisibleDirective } from "./directives/is-visible.directive";
 import { IsloadingDirective } from "./directives/isloading.directive";
 import { LoaderSpinnerComponent } from "./components/loader-spinner/loader-spinner.component";
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-import { AboutComponent } from './about/about.component';
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
+import { AboutComponent } from "./about/about.component";
+import { ScrolleerComponent } from "./components/scrolleer/scrolleer.component";
+import { ScrolleerSlideDirective } from './directives/scrolleer-slide.directive';
 
 @NgModule({
     declarations: [
@@ -25,15 +27,17 @@ import { AboutComponent } from './about/about.component';
         IsloadingDirective,
         LoaderSpinnerComponent,
         AboutComponent,
+        ScrolleerComponent,
+        ScrolleerSlideDirective,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: "serverApp" }),
         AppRoutingModule,
-        ServiceWorkerModule.register('ngsw-worker.js', {
-          enabled: environment.production,
-          // Register the ServiceWorker as soon as the application is stable
-          // or after 30 seconds (whichever comes first).
-          registrationStrategy: 'registerWhenStable:30000'
+        ServiceWorkerModule.register("ngsw-worker.js", {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the application is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: "registerWhenStable:30000",
         }),
     ],
     providers: [],

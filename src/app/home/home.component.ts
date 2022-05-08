@@ -1,14 +1,4 @@
-import { isPlatformBrowser } from "@angular/common";
-import {
-    AfterViewInit,
-    Component,
-    HostListener,
-    Inject,
-    OnInit,
-    PLATFORM_ID,
-} from "@angular/core";
-import { ScrollableService } from "../services/scrollable.service";
-import { ViewportCheckerService } from "../services/viewport-checker.service";
+import { Component, OnInit } from "@angular/core";
 import { Project } from "./project.interface";
 import { Skills } from "./skills.interface";
 
@@ -17,21 +7,8 @@ import { Skills } from "./skills.interface";
     templateUrl: "./home.component.html",
     styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
-    constructor(
-        public scrollable: ScrollableService,
-        private vpcs: ViewportCheckerService,
-        @Inject(PLATFORM_ID) private platformId: any
-    ) {}
-
-    @HostListener("window:resize") handleResize() {
-        let scrollable_container = document.getElementById(
-            "scrollable_container"
-        )!;
-
-        if (this.vpcs.isVisible(scrollable_container))
-            this.scrollable.scrollToPage(this.scrollable.currentElement);
-    }
+export class HomeComponent implements OnInit {
+    constructor() {}
 
     skills: Skills = {
         front: [
@@ -104,7 +81,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
     ];
 
     ngOnInit(): void {}
-    ngAfterViewInit(): void {
-        if (isPlatformBrowser(this.platformId)) this.scrollable.initCarousel();
-    }
 }

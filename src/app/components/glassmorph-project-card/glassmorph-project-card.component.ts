@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { BehaviorSubject, ReplaySubject } from "rxjs";
 
 @Component({
     selector: "GlassmorphProjectCard",

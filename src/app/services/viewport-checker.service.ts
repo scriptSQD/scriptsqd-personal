@@ -20,9 +20,12 @@ export class ViewportCheckerService {
 
     isVisible(el: HTMLElement, percent?: number): boolean {
         if (!el) return false;
-        let rect = el.getBoundingClientRect(),
-            windowHeight =
-                window.innerHeight || document.documentElement.clientHeight;
+
+        let rect = el.getBoundingClientRect();
+        let windowHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+        let windowWidth =
+            window.innerWidth || document.documentElement.clientWidth;
 
         return !(
             Math.floor(
@@ -30,7 +33,9 @@ export class ViewportCheckerService {
             ) < (percent || this.percVisible) ||
             Math.floor(
                 100 - ((rect.bottom - windowHeight) / rect.height) * 100
-            ) < (percent || this.percVisible)
+            ) < (percent || this.percVisible) ||
+            Math.floor(100 - (+-rect.left / windowWidth) * 100) <
+                (percent || this.percVisible)
         );
     }
 }
