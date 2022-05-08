@@ -25,7 +25,7 @@ jobs:
                       ${{ runner.os }}-node-
 
             - name: Install Project Deps
-              run: npm ci
+              run: npm i
 
             - name: Cache CloudFunctions npm dependencies
               uses: actions/cache@v2
@@ -36,7 +36,7 @@ jobs:
                       ${{ runner.os }}-funcs_node-
 
             - name: Install Functions deps
-              run: npm --prefix functions/ ci
+              run: npm --prefix functions/ i
 
             - name: Build Angular Universal
               run: npm run build:ssr-ci
