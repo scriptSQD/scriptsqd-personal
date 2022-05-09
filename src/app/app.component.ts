@@ -10,6 +10,7 @@ import {
 import { NavigationEnd, Router } from "@angular/router";
 import gsap from "gsap";
 import { filter } from "rxjs";
+import { UpdateAppService } from "./sw/update-app.service";
 
 @Component({
     selector: "app-root",
@@ -45,8 +46,11 @@ import { filter } from "rxjs";
 export class AppComponent implements AfterViewInit, AfterContentInit {
     constructor(
         private router: Router,
-        @Inject(PLATFORM_ID) private platformId: any
+        @Inject(PLATFORM_ID) private platformId: any,
+        private swupd: UpdateAppService
     ) {
+        this.swupd.checkUpdates();
+
         this.router.events
             .pipe(filter(event => event instanceof NavigationEnd))
             .subscribe({
