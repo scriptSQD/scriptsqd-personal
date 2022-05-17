@@ -1,10 +1,10 @@
 <span class="flex flex-col group relative items-center text-base" #card>
     <span
-        class="flex flex-col opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:-translate-y-8 absolute items-center justify-center h-fit w-fit"
+        class="flex flex-col opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:-translate-y-full absolute items-center justify-center h-fit w-max"
     >
         <div
             *ngIf="tooltip"
-            class="tooltip text-white border border-[#333333] w-fit rounded-md h-6 px-3 items-center justify-center"
+            class="tooltip text-white border border-[#333333] w-fit h-fit rounded-lg px-3 items-center justify-center text-center"
         >
             {{ tooltip }}
         </div>
@@ -21,7 +21,7 @@
         <div>
             <p
                 *ngIf="text"
-                class="text-[hsl(0,0%,48%)] group-hover:text-[hsl(0,0%,86%)] text-7xl w-fit h-fit font-bold transition-all duration-200"
+                class="text-[hsl(0,0%,48%)] group-hover:text-[hsl(0,0%,86%)] text-6xl w-fit h-fit font-bold transition-all duration-200"
             >
                 {{ text }}
             </p>

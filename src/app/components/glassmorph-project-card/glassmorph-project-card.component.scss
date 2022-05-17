@@ -3,10 +3,10 @@
 }
 
 .card {
-    @apply relative grid grid-cols-1 md:grid-flow-col md:grid-cols-[320px_auto] max-w-[92%] w-fit h-fit md:max-h-[380px]
+    @apply relative grid grid-cols-1 md:grid-flow-col md:grid-cols-[auto_auto] max-w-[92%] w-fit h-fit
     border border-[#424242] rounded-[22px] p-6
     overflow-hidden items-start justify-center;
-    box-shadow: 2.5px 7px 32px rgba(36, 36, 36, 0.45);
+    // box-shadow: 2.5px 7px 32px rgba(36, 36, 36, 0.45);
     background-color: hsla(0, 0%, 15%, 0.65);
 }
 

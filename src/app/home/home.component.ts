@@ -1,3 +1,4 @@
+import { BreakpointObserver } from "@angular/cdk/layout";
 import { Component, OnInit } from "@angular/core";
 import { Project } from "./project.interface";
 import { Skills } from "./skills.interface";
@@ -8,7 +9,16 @@ import { Skills } from "./skills.interface";
     styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-    constructor() {}
+    constructor(private bpo: BreakpointObserver) {
+        this.bpo.observe("(min-width: 710px)").subscribe({
+            next: query => {
+                if (query.matches) this.wide = true;
+                else this.wide = false;
+            },
+        });
+    }
+
+    wide: boolean = false;
 
     skills: Skills = {
         front: [
@@ -42,7 +52,7 @@ export class HomeComponent implements OnInit {
             },
             {
                 icon: "/assets/icons/linux.svg",
-                tooltip: "Linux (esp. Arch)",
+                tooltip: "Linux (kernel and Arch Distro)",
             },
         ],
     };
@@ -53,6 +63,7 @@ export class HomeComponent implements OnInit {
             description:
                 "The one you're on right now. It's also a big part of my portfolio as well as a symbol of my dedication.",
             image: "portfolio.webp",
+            sourceLink: "https://github.com/scriptSQD/scriptsqd-personal",
             stack: {
                 front: ["Angular (SSR)", "Tailwind CSS"],
             },
@@ -62,7 +73,8 @@ export class HomeComponent implements OnInit {
             description:
                 "Personal blog about music, written during 1-week vacations.",
             image: "tunestory.webp",
-            link: "https://tunestory.vercel.app",
+            sourceLink: "https://github.com/scriptSQD/tunestory",
+            liveLink: "https://tunestory.vercel.app",
             stack: {
                 front: ["Angular", "Tailwind CSS"],
                 back: ["Strapi"],
@@ -73,7 +85,8 @@ export class HomeComponent implements OnInit {
             description:
                 "School project dedicated to Antoni Tyzenhaus. Grodno's very famous figure.",
             image: "tyzenguide.webp",
-            link: "https://tyzenguide.web.app",
+            sourceLink: "https://github.com/scriptSQD/tyzenguide-remastered",
+            liveLink: "https://tyzenguide.web.app",
             stack: {
                 front: ["Angular", "Tailwind CSS", "HyperUI (UIKit)"],
             },

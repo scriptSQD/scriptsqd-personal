@@ -14,7 +14,10 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { AboutComponent } from "./about/about.component";
 import { ScrolleerComponent } from "./components/scrolleer/scrolleer.component";
-import { ScrolleerSlideDirective } from './directives/scrolleer-slide.directive';
+import { ScrolleerSlideDirective } from "./directives/scrolleer-slide.directive";
+import { ProjectsComponent } from "./projects/projects.component";
+import { ProjectCardComponent } from "./components/project-card/project-card.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -29,6 +32,8 @@ import { ScrolleerSlideDirective } from './directives/scrolleer-slide.directive'
         AboutComponent,
         ScrolleerComponent,
         ScrolleerSlideDirective,
+        ProjectsComponent,
+        ProjectCardComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: "serverApp" }),
@@ -39,6 +44,7 @@ import { ScrolleerSlideDirective } from './directives/scrolleer-slide.directive'
             // or after 30 seconds (whichever comes first).
             registrationStrategy: "registerWhenStable:30000",
         }),
+        BrowserAnimationsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -34,14 +34,16 @@
         &__dot {
             display: flex;
             width: 0.75rem;
+            transform: scale(0.625);
             aspect-ratio: 1;
             background-color: hsl(0, 0%, 35%);
-            margin: 0.625rem 0.425rem;
+            margin: 0.625rem 0.275rem;
             border-radius: 100%;
             transition: all 200ms ease-in-out;
 
             &.active,
             &:hover {
+                transform: scale(1);
                 background-color: var(--pagColor);
             }
         }

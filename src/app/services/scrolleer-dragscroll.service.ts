@@ -65,7 +65,7 @@ export class ScrolleerDragscrollService {
             if (
                 this.vpcs.isVisible(
                     children.item(this.currentEl + 1) as HTMLElement,
-                    25
+                    18
                 )
             )
                 this.ss.scrollToDirection(1);
@@ -76,7 +76,7 @@ export class ScrolleerDragscrollService {
             if (
                 this.vpcs.isVisible(
                     children.item(this.currentEl - 1) as HTMLElement,
-                    25
+                    18
                 )
             )
                 this.ss.scrollToDirection(-1);

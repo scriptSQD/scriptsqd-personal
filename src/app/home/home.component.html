@@ -1,5 +1,5 @@
 <section
-    class="flex flex-col items-center justify-center max-h-screen h-screen overflow-hidden font-trebuchet font-bold text-white text-[3.5rem] sm:text-[4.25rem] snap-center bg-[url('/assets/page-bgs/1.svg')] bg-cover bg-center"
+    class="flex flex-col items-center justify-center max-h-screen h-screen overflow-hidden font-trebuchet font-bold text-white text-[3.5rem] sm:text-[4.25rem] snap-center"
 >
     <span
         class="w-fit h-fit mx-3 relative flex flex-col items-start leading-none after:block after:bottom-0 after:z-0 after:-right-2 after:absolute after:w-full after:h-6 after:bg-gradient-to-r after:from-[#D55CFF] after:to-[hsla(155,100%,68%,50%)] flex-wrap"
@@ -8,7 +8,7 @@
             class="z-10 flex flex-row justify-center items-center flex-wrap break-all"
         >
             Hello
-            <p class="text-[#D55CFF]">.</p>
+            <strong class="text-[#D55CFF] font-bold">.</strong>
         </h1>
         <h1 class="z-10 flex flex-col flex-wrap break-all">
             I’m &mdash;
@@ -22,20 +22,21 @@
 </section>
 
 <section
-    class="flex flex-col items-center justify-center min-h-screen h-fit font-trebuchet font-bold text-white text-[2.25rem] sm:text-[2.75rem] snap-none md:snap-center bg-[url('/assets/page-bgs/2.svg')] bg-cover bg-bottom"
+    class="flex flex-col items-center justify-center min-h-screen h-fit font-trebuchet font-bold text-white text-[2.25rem] sm:text-[2.75rem] snap-none md:snap-center"
 >
     <h1
-        class="flex flex-row justify-center items-center flex-wrap break-all gap-x-2.5"
+        class="z-10 flex flex-row justify-center items-center flex-wrap break-all gap-x-2.5"
     >
         My
         <p
-            class="relative after:block after:bottom-3 after:-z-10 after:-right-2 after:absolute after:w-full after:h-4 after:bg-gradient-to-r after:from-[#D55CFF] after:to-[hsla(155,100%,68%,50%)]"
+            class="z-10 relative after:block after:-z-10 after:bottom-2.5 after:-right-2 after:absolute after:w-full after:h-4 after:bg-gradient-to-r after:from-[#D55CFF] after:to-[hsl(156,41%,38%)]"
         >
-            skills:
+            &lt;skills/&gt;:
         </p>
     </h1>
+
     <div
-        class="relative flex flex-row flex-wrap max-w-[968px] items-center justify-center gap-x-16 gap-y-4 mx-3"
+        class="relative flex flex-row flex-wrap max-w-[760px] items-center justify-center gap-x-16 gap-y-4 mx-3"
     >
         <div class="flex flex-col items-center gap-y-2">
             <p class="text-[1.5rem] font-normal">Front-end:</p>
@@ -67,13 +68,120 @@
                 ></GlassmorphCard>
             </div>
         </div>
+
+        <div
+            class="bg absolute -z-50 sm:max-w-full flex items-center justify-center"
+        >
+            <ng-container *ngIf="wide">
+                <svg
+                    width="1024"
+                    height="709"
+                    viewBox="0 0 1024 709"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="max-w-full"
+                >
+                    <path
+                        d="M840.336 0.740579C930.216 -5.03553 1007.61 72.2395 1021.03 161.223C1034.61 250.206 984.051 350.898 971.723 459.239C959.396 567.58 985.455 683.727 929.904 704.802C874.197 726.033 736.725 652.348 651.682 610.198C566.639 568.205 533.87 557.901 481.284 565.238C428.854 572.576 356.295 597.71 259.549 587.406C162.647 577.103 41.4029 531.518 9.57043 459.239C-22.2621 386.959 35.3173 287.985 118.644 240.371C201.97 192.757 311.043 196.504 386.411 195.567C461.935 194.631 503.754 189.167 576.002 142.021C648.093 95.0317 750.456 6.36058 840.336 0.740579Z"
+                        fill="url(#paint0_linear_152_6)"
+                    />
+                    <defs>
+                        <linearGradient
+                            id="paint0_linear_152_6"
+                            x1="1"
+                            y1="354"
+                            x2="1023"
+                            y2="354"
+                            gradientUnits="userSpaceOnUse"
+                        >
+                            <stop stop-color="#B220D7" />
+                            <stop
+                                offset="1"
+                                stop-color="#70A8FB"
+                                stop-opacity="0.5"
+                            />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </ng-container>
+            <ng-container *ngIf="!wide">
+                <svg
+                    width="418"
+                    height="518"
+                    viewBox="0 0 418 518"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M323.472 52.9312C354.972 95.6312 357.072 161.631 356.672 213.331C356.272 265.031 353.272 302.531 372.672 361.131C392.172 419.731 434.172 499.431 409.772 514.331C385.372 529.231 294.672 479.231 234.372 466.531C174.072 453.831 144.372 478.431 104.472 488.931C64.5724 499.431 14.5724 495.831 2.87239 467.331C-8.82761 438.831 17.7724 385.431 36.6724 348.731C55.5724 312.031 66.7724 292.031 66.0724 255.331C65.3724 218.731 52.8724 165.431 68.1724 115.231C83.5724 65.1312 126.772 18.0312 178.872 4.33122C230.972 -9.36878 291.872 10.1312 323.472 52.9312Z"
+                        fill="url(#paint0_linear_155_9)"
+                    />
+                    <defs>
+                        <linearGradient
+                            id="paint0_linear_155_9"
+                            x1="208.593"
+                            y1="0"
+                            x2="209"
+                            y2="517"
+                            gradientUnits="userSpaceOnUse"
+                        >
+                            <stop stop-color="#B220D7" />
+                            <stop offset="1" stop-color="#425D87" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-y-1.5 m-8 items-center justify-center">
+        <p class="text-2xl font-normal">More on that:</p>
+        <a
+            class="group relative inline-flex items-center px-8 py-3 overflow-hidden text-[#ccc] bg-[hsla(0,0%,15%,0.65)] rounded-lg focus:outline-none border border-[#424242] bg-opacity-[85%]"
+            style="box-shadow: 0.5px 1px 20px rgb(36 36 36 / 44%)"
+            routerLink="/about"
+        >
+            <span
+                class="absolute right-0 transition-transform translate-x-full group-hover:-translate-x-4"
+            >
+                <svg
+                    class="w-5 h-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                </svg>
+            </span>
+            <span
+                class="text-base font-semibold transition-all group-hover:mr-4"
+            >
+                About me
+            </span>
+        </a>
     </div>
 </section>
 
 <section
-    class="max-w-full w-full flex flex-col items-center justify-center min-h-screen h-fit text-white text-[2.25rem] sm:text-[2.75rem] snap-none md:snap-center bg-[url('/assets/page-bgs/3.svg')] bg-cover bg-top"
+    class="gap-3 max-w-full w-full flex flex-col items-center justify-center min-h-screen h-fit text-white text-[2.25rem] sm:text-[2.75rem] snap-none md:snap-center"
 >
-    <div class="flex flex-col gap-y-10">
+    <h1
+        class="z-10 flex flex-row justify-center items-center flex-wrap break-all gap-x-2.5 font-trebuchet font-semibold"
+    >
+        My
+        <p
+            class="z-10 relative after:block after:-z-10 after:bottom-2.5 after:-right-2 after:absolute after:w-full after:h-4 after:bg-gradient-to-r after:from-[#D55CFF] after:to-[hsla(155,100%,68%,50%)]"
+        >
+            &lt;projects/&gt;:
+        </p>
+    </h1>
+    <div class="relative flex">
         <scrolleer>
             <ng-container *ngFor="let proj of projects">
                 <GlassmorphProjectCard
@@ -83,10 +191,71 @@
                     [gmp-image]="proj.image"
                     [gmp-front-tech]="proj.stack.front"
                     [gmp-back-tech]="proj.stack.back"
-                    [gmp-link]="proj.link"
+                    [gmp-source-link]="proj.sourceLink"
+                    [gmp-live-link]="proj.liveLink"
                 >
                 </GlassmorphProjectCard>
             </ng-container>
         </scrolleer>
+
+        <div
+            class="bg absolute -z-50 sm:max-w-full flex items-center justify-center inset-0"
+        >
+            <ng-container *ngIf="wide">
+                <svg
+                    width="542"
+                    height="372"
+                    viewBox="0 0 542 372"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="max-w-full h-full w-full"
+                >
+                    <path
+                        d="M410.879 9.96713C460.279 19.0671 521.679 32.2671 537.179 66.3671C552.779 100.467 522.579 155.467 514.079 213.467C505.579 271.567 518.879 332.667 493.279 357.467C467.679 382.267 403.279 370.767 356.279 355.967C309.279 341.067 279.679 322.867 228.479 329.967C177.179 337.067 104.279 369.467 56.579 356.567C8.87902 343.667 -13.621 285.467 9.67903 239.867C32.979 194.267 102.179 161.267 142.779 133.067C183.379 104.867 195.479 81.4671 214.679 58.5671C233.879 35.6671 260.179 13.2671 292.079 4.56712C323.979 -4.13288 361.479 0.867131 410.879 9.96713Z"
+                        fill="url(#paint0_linear_155_12)"
+                    />
+                    <defs>
+                        <linearGradient
+                            id="paint0_linear_155_12"
+                            x1="6.36032e-09"
+                            y1="186"
+                            x2="542"
+                            y2="186"
+                            gradientUnits="userSpaceOnUse"
+                        >
+                            <stop stop-color="#B220D7" />
+                            <stop offset="1" stop-color="#425D87" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </ng-container>
+            <ng-container *ngIf="!wide">
+                <svg
+                    width="418"
+                    height="518"
+                    viewBox="0 0 418 518"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M323.472 52.9312C354.972 95.6312 357.072 161.631 356.672 213.331C356.272 265.031 353.272 302.531 372.672 361.131C392.172 419.731 434.172 499.431 409.772 514.331C385.372 529.231 294.672 479.231 234.372 466.531C174.072 453.831 144.372 478.431 104.472 488.931C64.5724 499.431 14.5724 495.831 2.87239 467.331C-8.82761 438.831 17.7724 385.431 36.6724 348.731C55.5724 312.031 66.7724 292.031 66.0724 255.331C65.3724 218.731 52.8724 165.431 68.1724 115.231C83.5724 65.1312 126.772 18.0312 178.872 4.33122C230.972 -9.36878 291.872 10.1312 323.472 52.9312Z"
+                        fill="url(#paint0_linear_155_9)"
+                    />
+                    <defs>
+                        <linearGradient
+                            id="paint0_linear_155_9"
+                            x1="208.593"
+                            y1="0"
+                            x2="209"
+                            y2="517"
+                            gradientUnits="userSpaceOnUse"
+                        >
+                            <stop stop-color="#B220D7" />
+                            <stop offset="1" stop-color="#425D87" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </ng-container>
+        </div>
     </div>
 </section>

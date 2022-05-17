@@ -3,10 +3,15 @@
 }
 
 .card {
-    @apply relative flex w-[175px] h-[175px] border border-[#424242] rounded-[22px]
+    @apply relative flex w-[145px] h-[145px] border border-[#424242] rounded-[22px]
     overflow-hidden items-center justify-center;
     box-shadow: 2.5px 7px 32px rgba(36, 36, 36, 0.45);
     background-color: hsla(0, 0%, 15%, 0.65);
+
+    & img {
+        height: 100px;
+        object-fit: contain;
+    }
 }
 
 .tooltip {
@@ -17,7 +22,7 @@
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     .card {
         @apply border-[#505050];
-        backdrop-filter: blur(10px) opacity(1);
+        backdrop-filter: blur(8px) opacity(1);
         background: linear-gradient(
             180deg,
             hsl(0, 0%, 30%, 20%) 0.07%,

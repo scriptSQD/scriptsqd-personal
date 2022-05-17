@@ -3,7 +3,7 @@
     "short_name": "scriptSQD",
     "description": "scriptSQD's personal website containing projects and personal info.",
     "theme_color": "#732885",
-    "background_color": "#121212",
+    "background_color": "#0c0d12",
     "display": "fullscreen",
     "scope": "./",
     "start_url": "./",

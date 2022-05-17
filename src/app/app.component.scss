@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.link {
+    color: #fff;
+    opacity: 0.4;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 2rem;
+    font-weight: 500;
+
+    & > strong {
+        color: hsl(289, 54%, 60%);
+    }
+}
+.link:hover,
+.link__active {
+    opacity: 1;
+    color: hsl(289, 54%, 60%);
+}
+#menu {
+    clip-path: inset(0 0 0 100vw);
+}

@@ -1,4 +1,4 @@
-<header class="fixed top-0 right-0 z-50">
+<header class="fixed top-0 right-0 z-50 w-full">
     <nav class="flex flex-row w-full p-2.5 justify-end items-center">
         <button
             class="opacity-50 hover:opacity-100 transition-all duration-200 z-50"
@@ -24,7 +24,7 @@
         </button>
     </nav>
     <div
-        class="fixed w-screen h-screen top-0 left-0 flex flex-col items-center justify-center bg-[#101010] bg-opacity-90 z-40"
+        class="fixed w-screen h-screen top-0 left-0 flex flex-col items-center justify-center bg-[#101010] bg-opacity-95 z-40"
         id="menu"
     >
         <ul>
@@ -35,7 +35,11 @@
                     routerLinkActive="link__active"
                     (click)="toggleMenu(true)"
                 >
-                    &mdash; Home
+                    <strong
+                        class="text-[hsl(289,54%,60%)] font-medium font-['JetBrains_Mono']"
+                        >01.</strong
+                    >
+                    Home
                 </a>
             </li>
             <li>
@@ -45,7 +49,11 @@
                     routerLinkActive="link__active"
                     (click)="toggleMenu(true)"
                 >
-                    &mdash; Projects
+                    <strong
+                        class="text-[hsl(289,54%,60%)] font-medium font-['JetBrains_Mono']"
+                        >02.</strong
+                    >
+                    Projects
                 </a>
             </li>
             <li>
@@ -55,17 +63,30 @@
                     routerLinkActive="link__active"
                     (click)="toggleMenu(true)"
                 >
-                    &mdash; About
+                    <strong
+                        class="text-[hsl(289,54%,60%)] font-medium font-['JetBrains_Mono']"
+                        >03.</strong
+                    >
+                    About
                 </a>
             </li>
         </ul>
     </div>
 </header>
 
-<router-outlet></router-outlet>
+<!-- below line should go into the div, for now it's WIP -->
+<!-- [@transitionRoutes]="outlet.isActivated ? outlet.activatedRoute : ''" -->
+<main
+    class="relative flex flex-col min-h-screen w-full overflow-x-hidden overflow-y-auto"
+    role="main"
+    [@transitionRoutes]="outlet.isActivated ? outlet.activatedRoute : ''"
+    (@transitionRoutes.done)="handleScroll()"
+>
+    <router-outlet #outlet="outlet"></router-outlet>
+</main>
 
 <span
-    class="fixed flex flex-col-reverse items-center justify-center w-fit left-1 md:left-2 bottom-3 gap-y-2 text-white transition-all opacity-30"
+    class="fixed flex flex-col-reverse items-center justify-center w-fit left-1 md:left-2 bottom-2 gap-y-2 text-white transition-all opacity-30"
     [ngClass]="{
         'opacity-0 -translate-x-1.5 select-none pointer-events-none': atBottom
     }"
@@ -85,3 +106,9 @@
     </svg>
     <p style="writing-mode: vertical-lr">scroll down</p>
 </span>
+
+<footer
+    class="flex prose prose-invert max-w-none w-full items-center justify-center"
+>
+    <span><p class="opacity-50 my-3">&copy; scriptSQD - 2022.</p></span>
+</footer>

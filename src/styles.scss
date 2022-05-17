@@ -17,6 +17,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --navbar: 56px;
+}
+
 html {
     scrollbar-width: none;
 
@@ -26,7 +30,8 @@ html {
 }
 
 body {
-    background-color: #121212;
+    background-color: #0c0d12;
+    // background-color: hsl(233, 23%, 6%);
 }
 
 .no_scrollbar {

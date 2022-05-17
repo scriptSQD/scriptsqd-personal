@@ -13,8 +13,10 @@ export class UpdateAppService {
         if (updater.isEnabled) this.checkUpdates();
     }
     checkUpdates(): void {
-        this.updater.versionUpdates.subscribe(() => {
-            this.update();
+        this.updater.versionUpdates.subscribe({
+            next: () => {
+                this.update();
+            },
         });
     }
 

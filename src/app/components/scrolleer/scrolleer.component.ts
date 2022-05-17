@@ -35,9 +35,9 @@ import { ViewportCheckerService } from "src/app/services/viewport-checker.servic
                     </ng-template>
                 </div>
             </div>
-            <span class="scrolleer__nav__container">
+            <span class="scrolleer__nav__container opacity-50">
                 <button
-                    class="group scrolleer__nav left-1.5 sm:left-3"
+                    class="group scrolleer__nav left-1.5 sm:left-7"
                     (click)="scrollable.scrollToDirection(-1)"
                     aria-label="Scroll to previous project"
                 >
@@ -57,7 +57,7 @@ import { ViewportCheckerService } from "src/app/services/viewport-checker.servic
                 </button>
 
                 <button
-                    class="group scrolleer__nav right-1.5 sm:right-3 -scale-100"
+                    class="group scrolleer__nav right-1.5 sm:right-7 -scale-100"
                     (click)="scrollable.scrollToDirection(1)"
                     aria-label="Scroll to next project"
                 >

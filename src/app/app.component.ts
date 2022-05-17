@@ -1,6 +1,5 @@
 import { isPlatformBrowser } from "@angular/common";
 import {
-    AfterContentInit,
     AfterViewInit,
     Component,
     HostListener,
@@ -10,45 +9,23 @@ import {
 import { NavigationEnd, Router } from "@angular/router";
 import gsap from "gsap";
 import { filter } from "rxjs";
+import { fadeInOut } from "./animations/fadeInOut.anim";
 import { UpdateAppService } from "./sw/update-app.service";
 
 @Component({
     selector: "app-root",
     templateUrl: "./app.component.html",
-    styles: [
-        `
-            :host {
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh;
-                width: 100%;
-                overflow-x: hidden;
-                overflow-y: auto;
-            }
-            .link {
-                color: #fff;
-                opacity: 0.35;
-                text-decoration: none;
-                transition: all 0.2s ease-in-out;
-                font-size: 2rem;
-                font-weight: 500;
-            }
-            .link:hover,
-            .link__active {
-                opacity: 1;
-            }
-            #menu {
-                clip-path: inset(0 0 0 100vw);
-            }
-        `,
-    ],
+    styleUrls: ["./app.component.scss"],
+    animations: [fadeInOut],
 })
-export class AppComponent implements AfterViewInit, AfterContentInit {
+export class AppComponent implements AfterViewInit {
     constructor(
         private router: Router,
         @Inject(PLATFORM_ID) private platformId: any,
         private swupd: UpdateAppService
     ) {
+        // TODO: Add "intro" screen
+
         this.swupd.checkUpdates();
 
         this.router.events
@@ -88,7 +65,7 @@ export class AppComponent implements AfterViewInit, AfterContentInit {
             },
             {
                 clipPath: "inset(0px 0px 0px 0px)",
-                duration: 0.65,
+                duration: 0.625,
                 ease: "expo.inOut",
                 onStart: () => {
                     this.animRunning = true;
@@ -104,11 +81,6 @@ export class AppComponent implements AfterViewInit, AfterContentInit {
         this.menuState = !this.menuState;
 
         anim.play();
-    }
-
-    pageLoaded: boolean = false;
-    ngAfterContentInit(): void {
-        this.pageLoaded = true;
     }
 
     ngAfterViewInit(): void {
