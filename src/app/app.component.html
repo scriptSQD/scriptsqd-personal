@@ -77,7 +77,7 @@
 <!-- below line should go into the div, for now it's WIP -->
 <!-- [@transitionRoutes]="outlet.isActivated ? outlet.activatedRoute : ''" -->
 <main
-    class="relative flex flex-col min-h-screen w-full overflow-x-hidden overflow-y-auto"
+    class="relative flex flex-col min-h-screen w-full overflow-hidden"
     role="main"
     [@transitionRoutes]="outlet.isActivated ? outlet.activatedRoute : ''"
     (@transitionRoutes.done)="handleScroll()"
