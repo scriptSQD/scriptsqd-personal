@@ -86,9 +86,9 @@
 </main>
 
 <span
-    class="fixed flex flex-col-reverse items-center justify-center w-fit left-1 md:left-2 bottom-2 gap-y-2 text-white transition-all opacity-30"
+    class="fixed flex flex-col-reverse items-center justify-center w-4 left-0.5 md:left-[0.175rem] lg:left-[0.375rem] bottom-2 gap-y-2 text-white transition-all opacity-30"
     [ngClass]="{
-        'opacity-0 -translate-x-1.5 select-none pointer-events-none': atBottom
+        'opacity-0 -translate-x-full select-none pointer-events-none': atBottom
     }"
 >
     <svg
@@ -104,11 +104,20 @@
             fill="white"
         />
     </svg>
-    <p style="writing-mode: vertical-lr">scroll down</p>
+    <p
+        style="
+            writing-mode: vertical-lr;
+            text-orientation: sideways;
+            line-height: 1rem;
+        "
+        class="text-base"
+    >
+        scroll down
+    </p>
 </span>
 
 <footer
     class="flex prose prose-invert max-w-none w-full items-center justify-center"
 >
-    <span><p class="opacity-50 my-3">&copy; scriptSQD - 2022.</p></span>
+    <span><p class="opacity-50 my-3">scriptSQD - &copy;2022.</p></span>
 </footer>

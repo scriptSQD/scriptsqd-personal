@@ -90,7 +90,7 @@ export class ScrolleerComponent implements AfterViewInit {
     constructor(@Inject(PLATFORM_ID) private platformId: any) {}
 
     @ViewChild("scrolleer_container")
-    scrolleer_container!: ElementRef;
+    scrolleer_container!: ElementRef<HTMLDivElement>;
     scrolleer_dragscroll!: ScrolleerDragscrollService;
 
     @HostBinding("style.--pagColor")

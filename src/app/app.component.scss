@@ -7,21 +7,22 @@
     overflow-y: auto;
 }
 .link {
-    color: #fff;
-    opacity: 0.4;
+    --menu_accent: #ebb6fc;
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     font-size: 2rem;
     font-weight: 500;
 
     & > strong {
-        color: hsl(289, 54%, 60%);
+        color: var(--menu_accent);
     }
 }
 .link:hover,
 .link__active {
     opacity: 1;
-    color: hsl(289, 54%, 60%);
+    color: var(--menu_accent);
 }
 #menu {
     clip-path: inset(0 0 0 100vw);
