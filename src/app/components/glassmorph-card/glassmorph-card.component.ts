@@ -3,7 +3,6 @@ import {
     Component,
     ElementRef,
     Input,
-    OnInit,
     ViewChild,
 } from "@angular/core";
 
@@ -13,16 +12,14 @@ import {
     styleUrls: ["./glassmorph-card.component.scss"],
 })
 export class GlassmoprhCardComponent implements AfterViewInit {
-    constructor() {}
-
     @ViewChild("card") card!: ElementRef<HTMLElement>;
 
-    @Input("gm-image")
+    @Input("image")
     image?: string;
-    @Input("gm-imageAlt") imageAlt?: string;
-    @Input("gm-text") text?: string;
-    @Input("gm-tooltip") tooltip?: string;
-    @Input("gm-size") size?: number;
+    @Input("alt") imageAlt?: string;
+    @Input("text") text?: string;
+    @Input("tooltip") tooltip?: string;
+    @Input("size") size?: number;
 
     ngAfterViewInit(): void {
         if (this.size) {

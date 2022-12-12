@@ -1,6 +1,5 @@
-import { BreakpointObserver } from "@angular/cdk/layout";
-import { Component, OnInit } from "@angular/core";
-import { Project } from "./project.interface";
+import { Component } from "@angular/core";
+import { IProject } from "./project.interface";
 import { Skills } from "./skills.interface";
 
 @Component({
@@ -8,56 +7,50 @@ import { Skills } from "./skills.interface";
     templateUrl: "./home.component.html",
     styleUrls: ["./home.component.scss"],
 })
-export class HomeComponent implements OnInit {
-    constructor(private bpo: BreakpointObserver) {
-        this.bpo.observe("(min-width: 710px)").subscribe({
-            next: query => {
-                if (query.matches) this.wide = true;
-                else this.wide = false;
-            },
-        });
-    }
-
-    wide: boolean = false;
+export class HomeComponent {
 
     skills: Skills = {
         front: [
             {
-                icon: "/assets/icons/angular.svg",
+                icon: "/assets/icons/skills/angular.svg",
                 tooltip: "Angular v13+",
             },
             {
-                icon: "/assets/icons/tailwindcss.svg",
+                icon: "/assets/icons/skills/tailwindcss.svg",
                 tooltip: "Tailwind CSS",
             },
         ],
         back: [
             {
-                icon: "/assets/icons/nestjs.svg",
+                icon: "/assets/icons/skills/nestjs.svg",
                 tooltip: "NestJS",
             },
             {
-                icon: "/assets/icons/strapi.svg",
+                icon: "/assets/icons/skills/strapi.svg",
                 tooltip: "Strapi",
             },
         ],
         general: [
             {
-                icon: "/assets/icons/mongodb.svg",
+                icon: "/assets/icons/skills/mongodb.svg",
                 tooltip: "MongoDB",
             },
             {
-                icon: "/assets/icons/git.svg",
+                icon: "/assets/icons/skills/git.svg",
                 tooltip: "Git / GitHub",
             },
             {
-                icon: "/assets/icons/linux.svg",
+                icon: "/assets/icons/skills/linux.svg",
                 tooltip: "Linux (kernel and Arch Distro)",
+            },
+            {
+                icon: "/assets/icons/skills/docker.svg",
+                tooltip: "Docker (Compose)",
             },
         ],
     };
 
-    projects: Project[] = [
+    projects: IProject[] = [
         {
             title: "Personal website",
             description:
@@ -92,6 +85,4 @@ export class HomeComponent implements OnInit {
             },
         },
     ];
-
-    ngOnInit(): void {}
 }

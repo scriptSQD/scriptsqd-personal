@@ -4,9 +4,10 @@
     "description": "scriptSQD's personal website containing projects and personal info.",
     "theme_color": "#732885",
     "background_color": "#0c0d12",
-    "display": "fullscreen",
+    "display": "standalone",
     "scope": "./",
     "start_url": "./",
+    "orientation": "natural",
     "icons": [
         {
             "src": "assets/icons/icon-72x72.png",

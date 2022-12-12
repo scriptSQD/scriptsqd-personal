@@ -1,0 +1,79 @@
+<header class="fixed top-0 right-0 z-50 w-full">
+    <nav class="flex flex-row w-full p-2.5 justify-end items-center">
+        <button
+            class="opacity-50 hover:opacity-100 transition-all duration-200 z-50"
+            (click)="toggleMenu()"
+            aria-label="Menu"
+        >
+            <img alt="Menu button" src="assets/svgs/menu.svg" class="w-8 h-8">
+        </button>
+    </nav>
+    <div id="menu">
+        <ul>
+            <li>
+                <a class="link" routerLink="/home" routerLinkActive="link__active" (click)="toggleMenu(true)">
+                    <strong class="text-[hsl(289,54%,60%)] font-medium font-jb">01.</strong>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a class="link" routerLink="/projects" routerLinkActive="link__active" (click)="toggleMenu(true)">
+                    <strong class="text-[hsl(289,54%,60%)] font-medium font-jb">02.</strong>
+                    Projects
+                </a>
+            </li>
+            <li>
+                <a class="link" routerLink="/about" routerLinkActive="link__active" (click)="toggleMenu(true)">
+                    <strong class="text-[hsl(289,54%,60%)] font-medium font-['JetBrains_Mono']">03.</strong>
+                    About
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<main
+    class="relative flex flex-col min-h-screen w-full overflow-hidden"
+    role="main"
+    [@transitionRoutes]="getTransitionRoutes(outlet)"
+    (@transitionRoutes.done)="handleScroll()"
+>
+    <router-outlet #outlet="outlet"></router-outlet>
+</main>
+
+<span
+    class="fixed flex flex-col-reverse items-center justify-center w-4 left-0.5 md:left-[0.175rem] lg:left-[0.375rem] bottom-2 gap-y-2 text-white transition-all opacity-30"
+    [ngClass]="{
+        'opacity-0 -translate-x-full select-none pointer-events-none': pageAtBottom
+    }"
+>
+    <svg
+        width="8"
+        height="12"
+        viewBox="0 0 8 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="animate-bounce"
+    >
+        <path
+            d="M7.2734 6.09432C7.18924 5.93832 7.02921 5.84107 6.85516 5.84107H4.14486V0.48953C4.14486 0.219309 3.93064 0 3.66668 0C3.40273 0 3.18851 0.219309 3.18851 0.48953V5.84107H0.47821C0.303516 5.84107 0.143487 5.93832 0.0599654 6.09432C-0.0248311 6.25031 -0.019093 6.4409 0.0733543 6.59168L3.26183 11.7716C3.34981 11.9138 3.50219 12 3.66668 12C3.83118 12 3.98355 11.9138 4.07154 11.7716L7.26001 6.59168C7.30847 6.51205 7.33333 6.42132 7.33333 6.3306C7.33333 6.24966 7.31293 6.16807 7.2734 6.09432Z"
+            fill="white"
+        />
+    </svg>
+    <p
+        style="
+            writing-mode: vertical-lr;
+            text-orientation: sideways;
+            line-height: 1rem;
+        "
+        class="text-base"
+    >
+        scroll down
+    </p>
+</span>
+
+<footer
+    class="flex prose prose-invert max-w-none w-full items-center justify-center"
+>
+    <span><p class="opacity-50 my-3">scriptSQD - &copy;2022.</p></span>
+</footer>

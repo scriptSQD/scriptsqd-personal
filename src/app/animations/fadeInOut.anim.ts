@@ -1,6 +1,6 @@
 import {
     animate,
-    query,
+    query, sequence,
     style,
     transition,
     trigger,
@@ -20,31 +20,33 @@ export const fadeInOut = trigger("transitionRoutes", [
             [
                 style({
                     position: "absolute",
-                    width: "100%",
-                    height: "fit-content",
+                    minWidth: "100vw",
+                    minHeight: "100vh",
                 }),
             ],
             { optional: true }
         ),
 
-        query(
-            ":leave",
-            [
-                style({ opacity: 1 }),
-                animate("0.5s ease-in-out", style({ opacity: 0 })),
-            ],
-            { optional: true }
-        ),
-        query(
-            ":enter",
-            [
-                style({ opacity: 0 }),
-                animate(
-                    "0.5s ease-in-out",
-                    style({ opacity: 1, position: "relative" })
-                ),
-            ],
-            { optional: true }
-        ),
+        sequence([
+            query(
+                ":leave",
+                [
+                    style({ opacity: 1 }),
+                    animate("425ms ease-in-out", style({ opacity: 0 })),
+                ],
+                { optional: true },
+            ),
+            query(
+                ":enter",
+                [
+                    style({ opacity: 0 }),
+                    animate(
+                        "425ms ease-in-out",
+                        style({ opacity: 1, position: "relative" }),
+                    ),
+                ],
+                { optional: true },
+            ),
+        ])
     ]),
 ]);

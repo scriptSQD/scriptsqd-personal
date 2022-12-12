@@ -7,8 +7,6 @@ import { HomeComponent } from "./home/home.component";
 import { FofComponent } from "./fof/fof.component";
 import { GlassmoprhCardComponent } from "./components/glassmorph-card/glassmorph-card.component";
 import { GlassmorphProjectCardComponent } from "./components/glassmorph-project-card/glassmorph-project-card.component";
-import { IsVisibleDirective } from "./directives/is-visible.directive";
-import { IsloadingDirective } from "./directives/isloading.directive";
 import { LoaderSpinnerComponent } from "./components/loader-spinner/loader-spinner.component";
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
@@ -16,8 +14,8 @@ import { AboutComponent } from "./about/about.component";
 import { ScrolleerComponent } from "./components/scrolleer/scrolleer.component";
 import { ScrolleerSlideDirective } from "./directives/scrolleer-slide.directive";
 import { ProjectsComponent } from "./projects/projects.component";
-import { ProjectCardComponent } from "./components/project-card/project-card.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { WrapperComponent } from './wrapper/wrapper.component';
 
 @NgModule({
     declarations: [
@@ -26,14 +24,12 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
         FofComponent,
         GlassmoprhCardComponent,
         GlassmorphProjectCardComponent,
-        IsVisibleDirective,
-        IsloadingDirective,
         LoaderSpinnerComponent,
         AboutComponent,
         ScrolleerComponent,
         ScrolleerSlideDirective,
         ProjectsComponent,
-        ProjectCardComponent,
+        WrapperComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: "serverApp" }),

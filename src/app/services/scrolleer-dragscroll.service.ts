@@ -9,8 +9,9 @@ export class ScrolleerDragscrollService {
     constructor(
         @Inject("container") private container: HTMLElement,
         @Inject("scrolleer") private ss: ScrolleerService,
-        private vpcs: ViewportCheckerService
-    ) {}
+        private viewportCheckerService: ViewportCheckerService,
+    ) {
+    }
 
     pos = { top: 0, left: 0, x: 0, y: 0 };
 
@@ -22,9 +23,9 @@ export class ScrolleerDragscrollService {
         let children = this.container.children;
 
         for (let i = 0; i < children.length; i++) {
-            let visible = this.vpcs.isVisible(
+            let visible = this.viewportCheckerService.isVisible(
                 children.item(i) as HTMLElement,
-                95
+                95,
             );
             if (visible) {
                 this.currentEl = i;
@@ -63,9 +64,9 @@ export class ScrolleerDragscrollService {
 
         if (this.draggingToLeft) {
             if (
-                this.vpcs.isVisible(
+                this.viewportCheckerService.isVisible(
                     children.item(this.currentEl + 1) as HTMLElement,
-                    18
+                    18,
                 )
             )
                 this.ss.scrollToDirection(1);
@@ -74,9 +75,9 @@ export class ScrolleerDragscrollService {
             }
         } else {
             if (
-                this.vpcs.isVisible(
+                this.viewportCheckerService.isVisible(
                     children.item(this.currentEl - 1) as HTMLElement,
-                    18
+                    18,
                 )
             )
                 this.ss.scrollToDirection(-1);

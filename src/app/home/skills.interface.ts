@@ -1,10 +1,10 @@
-interface Skill {
+interface ISkill {
     icon: string;
     tooltip: string;
 }
 
 export interface Skills {
-    front: Skill[];
-    back: Skill[];
-    general: Skill[];
+    front: ISkill[];
+    back: ISkill[];
+    general: ISkill[];
 }

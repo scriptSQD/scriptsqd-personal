@@ -1,35 +1,35 @@
-<span class="flex flex-col group items-center text-base font-sans">
+<span class="flex flex-col group items-center text-base font-sans" *ngIf="project as p">
     <div class="card gap-6 shadow shadow-[#33333397]">
         <img
-            src="/assets/projects/{{ image }}"
-            alt="{{ imageAlt ? imageAlt : title + ' homepage' }}"
+            src="/assets/projects/{{ p.image }}"
+            alt="{{ p.title }} homepage"
             class="h-full sm:h-80 sm:w-80 aspect-square object-contain rounded-[11px] justify-self-center self-center pointer-events-none"
         />
         <div
             class="max-h-[320px] h-[320px] overflow-y-scroll flex flex-col prose prose-invert prose-headings:m-0 prose-headings:mb-3 prose-p:m-0 text-white max-w-[38ch] prose-p:text-lg prose-li:my-0.5 no_scrollbar"
         >
-            <h1 class="text-center">{{ title }}</h1>
+            <h1 class="text-center">{{ p.title }}</h1>
             <div class="flex flex-col gap-y-3 overflow-y-scroll no_scrollbar">
                 <p>
                     <strong>General:</strong>
-                    {{ general }}
+                    {{ p.description }}
                 </p>
                 <div class="flex flex-col prose-li:marker:text-[#929292]">
                     <p><strong>Tech-stack</strong></p>
                     <div class="flex flex-col mx-3">
-                        <ng-container *ngIf="frontTech">
+                        <ng-container *ngIf="p.stack.front">
                             <p>Front-end:</p>
                             <ul class="flex flex-col mx-3">
-                                <li *ngFor="let tech of frontTech">
-                                    {{ tech }}
+                                <li *ngFor="let tool of p.stack.front">
+                                    {{ tool }}
                                 </li>
                             </ul>
                         </ng-container>
-                        <ng-container *ngIf="backTech">
+                        <ng-container *ngIf="p.stack.back">
                             <p>Back-end:</p>
                             <ul class="flex flex-col mx-3">
-                                <li *ngFor="let tech of backTech">
-                                    {{ tech }}
+                                <li *ngFor="let tool of p.stack.back">
+                                    {{ tool }}
                                 </li>
                             </ul>
                         </ng-container>
@@ -39,11 +39,11 @@
             <div class="flex flex-row gap-3 mt-auto">
                 <button
                     class="bg-opacity-60 bg-[#212121] border-[#404040] hover:bg-[#272727] hover:border-[#505050] focus:bg-[#232323] border rounded-lg px-2.5 py-1.5 transition-all duration-[250ms]"
-                    *ngIf="sourceLink"
+                    *ngIf="p.sourceLink"
                 >
                     <a
                         class="no-underline"
-                        [href]="sourceLink"
+                        [href]="p.sourceLink"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -69,11 +69,11 @@
 
                 <button
                     class="bg-opacity-60 bg-[#212121] border-[#404040] hover:bg-[#272727] hover:border-[#505050] focus:bg-[#232323] border rounded-lg px-2.5 py-1.5 transition-all duration-[250ms]"
-                    *ngIf="liveLink"
+                    *ngIf="p.liveLink"
                 >
                     <a
                         class="no-underline"
-                        [href]="liveLink"
+                        [href]="p.liveLink"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
