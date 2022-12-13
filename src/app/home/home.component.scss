@@ -60,4 +60,16 @@ section {
   @apply after:bg-gradient-to-r;
   @apply after:from-[#D55CFF];
   @apply after:to-[hsla(155,100%,68%,50%)];
+
+  &_title {
+    @apply leading-none;
+    @apply after:absolute;
+    @apply after:block;
+    @apply after:bottom-0;
+    @apply after:-right-2;
+    @apply after:z-0;
+    @apply after:w-full after:h-6;
+    @apply after:bg-gradient-to-r;
+    @apply after:from-[#D55CFF] after:to-[hsla(155,100%,68%,50%)];
+  }
 }

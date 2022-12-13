@@ -1,42 +1,78 @@
 @font-face {
-    font-family: "Trebuchet MS";
-    src: local("Trebuchet MS"), local("Trebuchet-MS"),
-        url("/assets/fonts/trebuc.woff") format("woff");
-    font-weight: 400;
-    font-display: swap;
+  font-family: "Trebuchet MS";
+  src: local("Trebuchet MS"), local("Trebuchet-MS"),
+  url("/assets/fonts/trebuc.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Trebuchet MS";
-    src: url("/assets/fonts/trebucbd.woff") format("woff");
-    font-weight: 600;
-    font-display: swap;
+  font-family: "Trebuchet MS";
+  src: url("/assets/fonts/trebucbd.woff") format("woff");
+  font-weight: 600;
+  font-display: swap;
 }
 
+/* tailwind init */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* SwiperJS init */
+@import 'swiper/swiper-bundle.min.css';
+//@import 'swiper/scss/navigation';
+//@import 'swiper/scss/pagination';
+
 :root {
-    --navbar: 56px;
+  --navbar: 56px;
 }
 
 html {
-    scrollbar-width: none;
+  scrollbar-width: none;
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {
-    background-color: #0c0d12;
-    // background-color: hsl(233, 23%, 6%);
+  background-color: #0c0d12;
+  // background-color: hsl(233, 23%, 6%);
 }
 
 .no_scrollbar {
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-        display: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.swiper {
+  &_dot {
+    display: flex;
+    width: 0.75rem;
+    transform: scale(0.625);
+    aspect-ratio: 1;
+    background-color: hsl(0, 0%, 35%);
+    margin: 0.625rem 0.275rem;
+    border-radius: 100%;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+
+    &_active,
+    &:hover {
+      transform: scale(1);
+      background-color: hsl(285, 100%, 80%);
     }
+  }
+
+  &_pag {
+    position: initial;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-block: 0.5rem;
+  }
 }

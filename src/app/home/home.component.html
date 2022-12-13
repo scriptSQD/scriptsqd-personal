@@ -1,9 +1,5 @@
-<section
-    class=" max-h-screen h-screen overflow-hidden font-bold !text-[3.5rem] !sm:text-[4.25rem] snap-center"
->
-    <span
-        class="w-fit h-fit mx-3 relative flex flex-col flex-wrap items-start leading-none after:block after:bottom-0 after:z-0 after:-right-2 after:absolute after:w-full after:h-6 after:bg-gradient-to-r after:from-[#D55CFF] after:to-[hsla(155,100%,68%,50%)]"
-    >
+<section class=" max-h-screen h-screen overflow-hidden font-bold !text-[3.5rem] !sm:text-[4.25rem] snap-center">
+    <span class="w-fit h-fit mx-3 relative flex flex-col flex-wrap items-start gradient_word_underline_title">
         <h1 class="z-10 flex flex-row justify-center items-center flex-wrap break-all">
             Hello
             <strong class="text-[#D55CFF] font-bold">,</strong>
@@ -19,23 +15,15 @@
     </p>
 </section>
 
-<section
-    class="min-h-screen h-fit font-bold"
->
-    <h1
-        class="z-10 flex flex-row justify-center items-center flex-wrap break-all gap-x-2.5"
-    >
+<section class="min-h-screen h-fit font-bold">
+    <h1 class="z-10 flex flex-row justify-center items-center flex-wrap break-all gap-x-2.5">
         My
-        <p
-            class="gradient_word_underline"
-        >
+        <p class="gradient_word_underline">
             &lt;skills/&gt;:
         </p>
     </h1>
 
-    <div
-        class="relative flex flex-row flex-wrap max-w-[760px] items-center justify-center gap-x-16 gap-y-4 mx-3"
-    >
+    <div class="relative flex flex-row flex-wrap max-w-[760px] items-center justify-center gap-x-16 gap-y-4 mx-3">
         <div class="skills_category_container">
             <p class="text-[1.5rem] font-normal">Front-end:</p>
             <div class="skills_container">
@@ -67,9 +55,7 @@
             </div>
         </div>
 
-        <div
-            class="gradient_background"
-        >
+        <div class="gradient_background">
             <img alt="Skills blob background" class="hidden wide:block" src="assets/svgs/skills.blob.full.svg" />
             <img alt="Skills blob background" class="block wide:hidden" src="assets/svgs/skills.blob.mobile.svg" />
         </div>
@@ -78,9 +64,7 @@
     <div class="flex flex-col gap-y-1.5 m-8 items-center justify-center">
         <p class="text-2xl font-normal">More on that:</p>
         <a class="group about_link" routerLink="/about">
-            <span
-                class="absolute right-0 transition-transform translate-x-full group-hover:-translate-x-4"
-            >
+            <span class="absolute right-0 transition-transform translate-x-full group-hover:-translate-x-4">
                 <svg
                     class="w-5 h-5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -96,42 +80,32 @@
                     />
                 </svg>
             </span>
-            <span
-                class="text-base font-semibold transition-all group-hover:mr-4"
-            >
+            <span class="text-base font-semibold transition-all group-hover:mr-4">
                 About me
             </span>
         </a>
     </div>
 </section>
 
-<section
-    class="gap-3 max-w-full w-full min-h-screen h-fit"
->
-    <h1
-        class="z-10 flex flex-row justify-center items-center flex-wrap break-all gap-x-2.5 font-semibold"
-    >
+<section class="gap-3 max-w-full w-full min-h-screen h-fit">
+    <h1 class="z-10 flex flex-row justify-center items-center flex-wrap break-all gap-x-2.5 font-semibold">
         My
-        <p
-            class="gradient_word_underline"
-        >
+        <p class="gradient_word_underline">
             &lt;projects/&gt;:
         </p>
     </h1>
     <div class="relative flex">
-        <scrolleer>
-            <ng-container *ngFor="let project of projects">
-                <GlassmorphProjectCard
-                    *scrolleerSlide
-                    [project]="project"
-                >
-                </GlassmorphProjectCard>
-            </ng-container>
-        </scrolleer>
-
-        <div
-            class="gradient_background inset-0"
+        <swiper
+            #swiper
+            class="max-w-[100vw] flex flex-col-reverse"
+            [config]="swiperOptions"
         >
+            <ng-template *ngFor="let project of projects" swiperSlide>
+                <GlassmorphProjectCard [project]="project"></GlassmorphProjectCard>
+            </ng-template>
+        </swiper>
+
+        <div class="gradient_background inset-0">
             <img alt="Projects blob background" class="hidden wide:block" src="assets/svgs/projects.blob.full.svg" />
             <img alt="Projects blob background" class="block wide:hidden" src="assets/svgs/projects.blob.mobile.svg" />
         </div>

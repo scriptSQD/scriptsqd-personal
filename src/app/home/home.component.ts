@@ -1,6 +1,14 @@
-import { Component } from "@angular/core";
-import { IProject } from "./project.interface";
-import { Skills } from "./skills.interface";
+import { Component, ViewChild } from "@angular/core";
+import { PaginationOptions, SwiperOptions } from "swiper/types";
+import { BreakpointObserver } from "@angular/cdk/layout";
+import { projects, skills } from "./dataset";
+
+import SwiperCore, { Pagination, Navigation } from "swiper";
+import { SwiperComponent } from "swiper/angular";
+
+SwiperCore.use([Pagination, Navigation]);
+
+const NAVIGATION_QUERY = "(min-width: 640px)";
 
 @Component({
     selector: "app-home",
@@ -8,81 +16,44 @@ import { Skills } from "./skills.interface";
     styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent {
+    @ViewChild("swiper")
+    private swiper!: SwiperComponent;
 
-    skills: Skills = {
-        front: [
-            {
-                icon: "/assets/icons/skills/angular.svg",
-                tooltip: "Angular v13+",
-            },
-            {
-                icon: "/assets/icons/skills/tailwindcss.svg",
-                tooltip: "Tailwind CSS",
-            },
-        ],
-        back: [
-            {
-                icon: "/assets/icons/skills/nestjs.svg",
-                tooltip: "NestJS",
-            },
-            {
-                icon: "/assets/icons/skills/strapi.svg",
-                tooltip: "Strapi",
-            },
-        ],
-        general: [
-            {
-                icon: "/assets/icons/skills/mongodb.svg",
-                tooltip: "MongoDB",
-            },
-            {
-                icon: "/assets/icons/skills/git.svg",
-                tooltip: "Git / GitHub",
-            },
-            {
-                icon: "/assets/icons/skills/linux.svg",
-                tooltip: "Linux (kernel and Arch Distro)",
-            },
-            {
-                icon: "/assets/icons/skills/docker.svg",
-                tooltip: "Docker (Compose)",
-            },
-        ],
+    navigationEnabled: boolean;
+
+    paginationOptions: PaginationOptions = {
+        enabled: true,
+        clickable: true,
+        type: "bullets",
+        bulletClass: "swiper_dot",
+        bulletActiveClass: "swiper_dot_active",
+        horizontalClass: "swiper_pag",
     };
 
-    projects: IProject[] = [
-        {
-            title: "Personal website",
-            description:
-                "The one you're on right now. It's also a big part of my portfolio as well as a symbol of my dedication.",
-            image: "portfolio.webp",
-            sourceLink: "https://github.com/scriptSQD/scriptsqd-personal",
-            stack: {
-                front: ["Angular (SSR)", "Tailwind CSS"],
-            },
-        },
-        {
-            title: "TuneStory",
-            description:
-                "Personal blog about music, written during 1-week vacations.",
-            image: "tunestory.webp",
-            sourceLink: "https://github.com/scriptSQD/tunestory",
-            liveLink: "https://tunestory.vercel.app",
-            stack: {
-                front: ["Angular", "Tailwind CSS"],
-                back: ["Strapi"],
-            },
-        },
-        {
-            title: "Tyzenguide",
-            description:
-                "School project dedicated to Antoni Tyzenhaus. Grodno's very famous figure.",
-            image: "tyzenguide.webp",
-            sourceLink: "https://github.com/scriptSQD/tyzenguide-remastered",
-            liveLink: "https://tyzenguide.web.app",
-            stack: {
-                front: ["Angular", "Tailwind CSS", "HyperUI (UIKit)"],
-            },
-        },
-    ];
+    swiperOptions: SwiperOptions;
+
+    skills = skills;
+    projects = projects;
+
+    constructor(public readonly breakpointObserver: BreakpointObserver) {
+        this.navigationEnabled = breakpointObserver.isMatched(NAVIGATION_QUERY);
+        breakpointObserver.observe(NAVIGATION_QUERY)
+            .subscribe({
+                next: (state) => {
+                    if (!this.swiper)
+                        return;
+
+                    this.navigationEnabled = state.matches;
+                    this.swiper.updateSwiper({ navigation: this.navigationEnabled });
+                },
+            });
+
+        this.swiperOptions = {
+            slidesPerView: 1,
+            spaceBetween: 40,
+            loop: true,
+            pagination: this.paginationOptions,
+            navigation: this.navigationEnabled,
+        };
+    }
 }
